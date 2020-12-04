@@ -4,6 +4,7 @@ const connectDB = require("./config/db")
 
 const app = express();
 
+// connect datbaase
 connectDB();
 // const path = require('path');
 var PORT = process.env.PORT || 5000;
