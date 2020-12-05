@@ -6,14 +6,18 @@ const app = express();
 
 // connect datbaase
 connectDB();
-// const path = require('path');
 var PORT = process.env.PORT || 5000;
 
-// app.use(express.urlencoded({ extended: true }));
-// app.use(express.json());
+
 
 // create endpoint / to test server 
 app.get('/', (req, res) => res.send('API Running'))
+
+// define routes
+app.use('/api/users', require('./routes/api/users'))
+app.use('/api/auth', require('./routes/api/auth'))
+app.use('/api/profile', require('./routes/api/profile'))
+app.use('/api/posts', require('./routes/api/posts'))
 
 app.listen(PORT, function () {
     console.log('App listening on PORT ' + PORT);
